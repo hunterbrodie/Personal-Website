@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="icon" href="../../images/logo.png">
+        <link rel="stylesheet" href="../../css/terminal.css" />
+
+        <title>hunterbrodie</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+          :root {
+            --global-font-size: 15px;
+            --global-line-height: 1.4em;
+            --global-space: 10px;
+            --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+              DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+              serif;
+            --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+              DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+              serif;
+            --background-color: #222225;
+            --page-width: 60em;
+            --font-color: #e8e9ed;
+            --invert-font-color: #222225;
+            --secondary-color: #a3abba;
+            --tertiary-color: #a3abba;
+            --primary-color: #62c4ff;
+            --error-color: #ff3c74;
+            --progress-bar-background: #3f3f44;
+            --progress-bar-fill: #62c4ff;
+            --code-bg-color: #3f3f44;
+            --input-style: solid;
+            --display-h1-decoration: none;
+          }
+        </style>
+    </head>
+    <body class="terminal" style="background-color: #222225;" >
+        <div class="container">
+            <div class="terminal-nav">
+                <header class="terminal-logo">
+                    <div class="logo terminal-prompt"><a class="no-style" href="../../index.html">hunterbrodie</a></div>
+                </header>
+                <nav class="terminal-menu">
+                    <ul>
+                        <li><a href="../resume.html">resume</a></li>
+                        <li><a href="../cs.html">cs projects</a></li>
+                        <li><a href="../websites.html">website work</a></li>
+                        <li><a class="active" href="../blog.html">blog</a></li>
+                        <li><a href="../about.html">about</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="container">
+            <a href="../blog.html">Go Back</a>
+            <h1>Labyrinth: Maze Generation</h1>
+            <p>
+                Labyrinth is a game I’m currently in the process of making. I’ve just finished the core gameplay loop and polished it enough where I’m not embarrassed by it. The game was really fun to program and used some really interesting algorithms, and I’ll cover the maze generation in this blog post.<br>
+                <br>
+                The maze in the game is somewhat modeled after the labyrinth in Greek mythology. As such it needs to be so complicated that its creator could barely escape it. To get the maze as complicated as I wanted it to be, I wanted it to change as you moved through it. But before I could go code all that I had to write the algorithm for the maze in the first place. After reading up on a few maze creation algorithms, I decided on the recursive backtracking method. How the algorithm worked was there would be a set of nodes with walls in between them. The algorithm would start on a node and choose a random direction to break through the wall. If the node was in bounds and hadn’t been visited yet, it would connect the two nodes. Once the nodes were connected, it would start again on the new node. This would continue until the algorithm tried to break through to an out of bounds or already visited node, in which case it would choose another direction. Once all the directions on a node lead to invalid nodes, the algorithm would jump back to the previous node and start again. The following is my implementation of the recursive backtracking algorithm in C#.
+            </p>
+            <pre><code class="hljs css">private void GenerateMaze(int x, int y, System.Random rand)
+{
+    List<int> nums = new List<int>();
+    nums.Add(0);
+    nums.Add(1);
+    nums.Add(2);
+    nums.Add(3);
+    maze[x, y] = FLOOR;
+    for (int i = 0; i < 4; i++)
+    {
+        int index = nums[rand.Next(0, nums.Count)];
+        nums.Remove(index);
+        if (index == 0 && x - 2 >= 0 && maze[x - 2, y] == WALL)
+        {
+            maze[x - 1, y] = FLOOR;
+            GenerateMaze(x - 2, y, rand);
+        }
+        else if (index == 1 && x + 2 < maze.GetLength(0) && maze[x + 2, y] == WALL)
+        {
+            maze[x + 1, y] = FLOOR;
+            GenerateMaze(x + 2, y, rand);
+        }
+        else if (index == 2 && y - 2 >= 0 && maze[x, y - 2] == WALL)
+        {
+            maze[x, y - 1] = FLOOR;
+            GenerateMaze(x, y - 2, rand);
+        }
+        else if (index == 3 && y + 2 < maze.GetLength(1) && maze[x, y + 2] == WALL)
+        {
+            maze[x, y + 1] = FLOOR;
+            GenerateMaze(x, y + 2, rand);
+        }
+    }
+}</code></pre>
+            <p>
+                Once the algorithm was up an running, I needed a way to generate the maze as the player went along. I also wanted to make it so if the player went back, the maze would change. I took some inspiration from Minecraft, one of my favorite video games of all time, to make that happen. I decided to implement a chunk system, with chunks being 8x8 units. I wrote a chunk class that would keep its position and a map of itself. Each chunk would generate a maze within itself using the recursive backtracking algorithm. I then created a chunkmap class that would handle the creation of the chunks. I decided to make there only ever be 9 chunks in existence, with the player always being in the center one. When the player moved to the left, the right most column was deleted and a new column was inserted on the left. To keep track of the player movement, I created a GameManager script. This checked when the player went out of bounds of the center chunk, and depending on which direction the player went out of bounds it would send a signal to the chunkmap class to insert a new column/row. That worked really well, but the chunks were separate and not connected, so it wasn’t usable. To fix that I wrote a function that would break the wall to connect the occasional two nodes between two chunks. This function would be called on the necessary chunks whenever a new row was added. This worked great, and is what is currently in the game. Below is a demo of the maze generation in Unity.
+            </p>
+            <iframe style="width: 100%;" height="500" src="https://www.youtube.com/embed/Zvb3KWT5ZhA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>
+                That's all for now, thanks for reading!
+            </p>
+        </div>
+    </body>
+</html>
