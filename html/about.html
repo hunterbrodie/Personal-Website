@@ -85,7 +85,7 @@
             var mDisplay = m > 0 ? "and " + m + (m == 1 ? " minute " : " minutes ") : "";
 
             document.getElementById("lichess").innerHTML = "In my latest game I played the " + split.pop() + " pieces. Currently I'm rated " +  myObj.perfs.rapid.rating + " in the rapid format over " + myObj.perfs.rapid.games +
-                " games and rated " + myObj.perfs.classical.rating + " in the classical format over " + myObj.perfs.classical.games + " games. So far I've played for a total of " + dDisplay + hDisplay + mDisplay + " minutes on lichess.org.";
+                " games and rated " + myObj.perfs.classical.rating + " in the classical format over " + myObj.perfs.classical.games + " games. So far I've played for a total of " + dDisplay + hDisplay + mDisplay + "on lichess.org.";
             document.getElementById("current_game").setAttribute("src", "https://lichess.org/embed/" + split.pop() + "?theme=purple-diag&bg=dark");
           }
         };
