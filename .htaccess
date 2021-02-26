@@ -2,6 +2,4 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
-DirectoryIndex index
-
 ErrorDocument 404 /errors/not-found.html
