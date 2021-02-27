@@ -88,13 +88,13 @@
             {
               var game_url = myObj.playing;
               var split = game_url.split('/');
-              str = "In my latest game I played the " + split.pop() + " pieces. ";
+              str = "Currently I'm playing the " + split.pop() + " pieces. ";
+              document.getElementById("current_game").setAttribute("src", "https://lichess.org/embed/" + split.pop() + "?theme=purple-diag&bg=dark");
             }
 
-            str += "Currently I'm rated " +  myObj.perfs.rapid.rating + " in the rapid format over " + myObj.perfs.rapid.games + " games and rated " + myObj.perfs.classical.rating + " in the classical format over "
+            str += "I'm rated " +  myObj.perfs.rapid.rating + " in the rapid format over " + myObj.perfs.rapid.games + " games and rated " + myObj.perfs.classical.rating + " in the classical format over "
                     + myObj.perfs.classical.games + " games. So far I've played for a total of " + dDisplay + hDisplay + mDisplay + "on lichess.org.";
             document.getElementById("lichess").innerHTML = str;
-            document.getElementById("current_game").setAttribute("src", "https://lichess.org/embed/" + split.pop() + "?theme=purple-diag&bg=dark");
           }
         };
 
