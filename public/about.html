@@ -120,7 +120,21 @@
                         color = "black";
                     }
 
-                    document.getElementById("game").innerHTML = "In my last game I played the " + gameData.opening.name + " as the " + color + " pieces."
+                    let result = "drew";
+
+                    if (typeof gameData.winner != "undefined")
+                    {
+                        if (gameData.winner === color)
+                        {
+                            result = "won";
+                        }
+                        else
+                        {
+                            result = "lost";
+                        }
+                    }
+
+                    document.getElementById("game").innerHTML = "In my last game I " + result + " as the " + color + " pieces playing the " + gameData.opening.name + ".";
                 }
                 else
                 {
