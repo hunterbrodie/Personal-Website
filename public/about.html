@@ -104,7 +104,7 @@
             {
                 let gameRequest = await fetch("https://lichess.org/api/user/{username}/current-game", {
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
                     }
                 });
                 if (gameRequest.ok)
