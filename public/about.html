@@ -95,7 +95,7 @@
 
             if (typeof userData.playing != "undefined")
             {
-                var game_url = myObj.playing;
+                var game_url = userData.playing;
                 var split = game_url.split('/');
                 document.getElementById("game").innerHTML = "Currently I'm playing the " + split.pop() + " pieces.";
                 document.getElementById("current_game").setAttribute("src", "https://lichess.org/embed/" + split.pop() + "?theme=purple-diag&bg=dark");
