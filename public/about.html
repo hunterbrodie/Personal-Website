@@ -116,7 +116,7 @@
 
                     let color = "white";
 
-                    if (gameData.players.black.user.id === 'hunterbrodie')
+                    if (typeof gameData.players.black.id != undefined && gameData.players.black.user.id === 'hunterbrodie')
                     {
                         color = "black";
                     }
