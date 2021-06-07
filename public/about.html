@@ -3,153 +3,153 @@
 <html>
 
 <head>
-    <link rel="icon" href="../images/logo.png">
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/terminal.css" />
+	<link rel="icon" href="../images/logo.png">
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/terminal.css" />
 
-    <title>hunterbrodie</title>
+	<title>hunterbrodie</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --global-font-size: 15px;
-            --global-line-height: 1.4em;
-            --global-space: 10px;
-            --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
-                DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
-                serif;
-            --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
-                DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
-                serif;
-            --background-color: #222225;
-            --page-width: 60em;
-            --font-color: #e8e9ed;
-            --invert-font-color: #222225;
-            --secondary-color: #a3abba;
-            --tertiary-color: #a3abba;
-            --primary-color: #62c4ff;
-            --error-color: #ff3c74;
-            --progress-bar-background: #3f3f44;
-            --progress-bar-fill: #62c4ff;
-            --code-bg-color: #3f3f44;
-            --input-style: solid;
-            --display-h1-decoration: none;
-        }
-    </style>
+	<style>
+		:root {
+			--global-font-size: 15px;
+			--global-line-height: 1.4em;
+			--global-space: 10px;
+			--font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+				DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+				serif;
+			--mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+				DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+				serif;
+			--background-color: #222225;
+			--page-width: 60em;
+			--font-color: #e8e9ed;
+			--invert-font-color: #222225;
+			--secondary-color: #a3abba;
+			--tertiary-color: #a3abba;
+			--primary-color: #62c4ff;
+			--error-color: #ff3c74;
+			--progress-bar-background: #3f3f44;
+			--progress-bar-fill: #62c4ff;
+			--code-bg-color: #3f3f44;
+			--input-style: solid;
+			--display-h1-decoration: none;
+		}
+	</style>
 </head>
 
 <body class="terminal" style="background-color: #222225;">
-    <div class="container">
-        <div class="terminal-nav">
-            <header class="terminal-logo">
-                <div class="logo terminal-prompt"><a class="no-style" href="/">hunterbrodie</a></div>
-            </header>
-            <nav class="terminal-menu">
-                <ul>
-                    <li><a href="/">resume</a></li>
-                    <li><a href="cs">cs projects</a></li>
-                    <li><a href="websites">website work</a></li>
-                    <li><a href="blog">blog</a></li>
-                    <li><a class="active" href="about">about</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <div class="container">
-        <h1>about me</h1>
-        <p>
-            Hi, my name is Hunter. I am a senior at Croton Harmon High School. At school, I play tennis and chess. I am
-            a captain of the school tennis team and I founded the chess club in my high school. At home, I read books
-            and play video games. My favorite genre is sci-fi, and I love grand strategy video games. With my friends I
-            play cards and board games. We love team based card games such as 29 or Bridge, and playing stupidly
-            complicated board games like Scythe.
-        </p>
+	<div class="container">
+		<div class="terminal-nav">
+			<header class="terminal-logo">
+				<div class="logo terminal-prompt"><a class="no-style" href="/">hunterbrodie</a></div>
+			</header>
+			<nav class="terminal-menu">
+				<ul>
+					<li><a href="/">resume</a></li>
+					<li><a href="cs">cs projects</a></li>
+					<li><a href="websites">website work</a></li>
+					<li><a href="blog">blog</a></li>
+					<li><a class="active" href="about">about</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="container">
+		<h1>about me</h1>
+		<p>
+			Hi, my name is Hunter. I am a senior at Croton Harmon High School. At school, I play tennis and chess. I am
+			a captain of the school tennis team and I founded the chess club in my high school. At home, I read books
+			and play video games. My favorite genre is sci-fi, and I love grand strategy video games. With my friends I
+			play cards and board games. We love team based card games such as 29 or Bridge, and playing stupidly
+			complicated board games like Scythe.
+		</p>
 
-        <h1>chess</h1>
-        <p id="lichess"></p>
-        <iframe style="position: relative; width: 100%;" id="current_game" height=397 frameborder=0></iframe>
-        <p id="game"></p>
-    </div>
+		<h1>chess</h1>
+		<p id="lichess"></p>
+		<iframe style="position: relative; width: 100%;" id="current_game" height=397 frameborder=0></iframe>
+		<p id="game"></p>
+	</div>
 </body>
 
 <script>
-    async function lichessData()
-    {
-        let userRequest = await fetch("https://lichess.org/api/user/hunterbrodie");
+	async function lichessData()
+	{
+		let userRequest = await fetch("https://lichess.org/api/user/hunterbrodie");
 
-        if (userRequest.ok)
-        {
-            let userData = await userRequest.json();
+		if (userRequest.ok)
+		{
+			let userData = await userRequest.json();
 
-            var seconds = userData.playTime.total;
-            //Calc time
-            var d = Math.floor(seconds / (3600 * 24));
-            var h = Math.floor(seconds % (3600 * 24) / 3600);
-            var m = Math.floor(seconds % 3600 / 60);
-            var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
-            var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
-            var mDisplay = m > 0 ? "and " + m + (m == 1 ? " minute " : " minutes ") : "";
+			var seconds = userData.playTime.total;
+			//Calc time
+			var d = Math.floor(seconds / (3600 * 24));
+			var h = Math.floor(seconds % (3600 * 24) / 3600);
+			var m = Math.floor(seconds % 3600 / 60);
+			var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+			var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+			var mDisplay = m > 0 ? "and " + m + (m == 1 ? " minute " : " minutes ") : "";
 
-            document.getElementById("lichess").innerHTML = "I'm rated " + userData.perfs.rapid.rating + " in the rapid format over " + userData.perfs.rapid.games + " games and rated " + userData.perfs.classical.rating
-                + " in the classical format over " + userData.perfs.classical.games + " games. So far I've played for a total of " + dDisplay + hDisplay + mDisplay + "on lichess.org.";
+			document.getElementById("lichess").innerHTML = "I'm rated " + userData.perfs.rapid.rating + " in the rapid format over " + userData.perfs.rapid.games + " games and rated " + userData.perfs.classical.rating
+				+ " in the classical format over " + userData.perfs.classical.games + " games. So far I've played for a total of " + dDisplay + hDisplay + mDisplay + "on lichess.org.";
 
-            if (typeof userData.playing != "undefined")
-            {
-                var game_url = userData.playing;
-                var split = game_url.split('/');
-                document.getElementById("game").innerHTML = "Currently I'm playing the " + split.pop() + " pieces.";
-                document.getElementById("current_game").setAttribute("src", "https://lichess.org/embed/" + split.pop() + "?theme=purple-diag&bg=dark");
-            }
-            else
-            {
-                let gameRequest = await fetch("https://lichess.org/api/user/hunterbrodie/current-game", {
-                    headers: {
-                        'Accept': 'application/json',
-                    }
-                });
-                if (gameRequest.ok)
-                {
-                    let gameData = await gameRequest.json();
+			if (typeof userData.playing != "undefined")
+			{
+				var game_url = userData.playing;
+				var split = game_url.split('/');
+				document.getElementById("game").innerHTML = "Currently I'm playing the " + split.pop() + " pieces.";
+				document.getElementById("current_game").setAttribute("src", "https://lichess.org/embed/" + split.pop() + "?theme=purple-diag&bg=dark");
+			}
+			else
+			{
+				let gameRequest = await fetch("https://lichess.org/api/user/hunterbrodie/current-game", {
+					headers: {
+						'Accept': 'application/json',
+					}
+				});
+				if (gameRequest.ok)
+				{
+					let gameData = await gameRequest.json();
 
-                    document.getElementById("current_game").setAttribute("src", "https://lichess.org/embed/" + gameData.id + "?theme=purple-diag&bg=dark");
+					document.getElementById("current_game").setAttribute("src", "https://lichess.org/embed/" + gameData.id + "?theme=purple-diag&bg=dark");
 
-                    let color = "white";
+					let color = "white";
 
-                    if (typeof gameData.players.black.id != undefined && gameData.players.black.user.id === 'hunterbrodie')
-                    {
-                        color = "black";
-                    }
+					if (typeof gameData.players.black.id != undefined && gameData.players.black.user.id === 'hunterbrodie')
+					{
+						color = "black";
+					}
 
-                    let result = "drew";
+					let result = "drew";
 
-                    if (typeof gameData.winner != "undefined")
-                    {
-                        if (gameData.winner === color)
-                        {
-                            result = "won";
-                        }
-                        else
-                        {
-                            result = "lost";
-                        }
-                    }
+					if (typeof gameData.winner != "undefined")
+					{
+						if (gameData.winner === color)
+						{
+							result = "won";
+						}
+						else
+						{
+							result = "lost";
+						}
+					}
 
-                    document.getElementById("game").innerHTML = "In my last game I " + result + " as the " + color + " pieces playing the " + gameData.opening.name + " in the " + gameData.variant + " variant with " + gameData.speed + " time control.";
-                }
-                else
-                {
-                    alert("HTTP-Error: " + gameRequest.status);
-                }
-            }
-        }
-        else
-        {
-            alert("HTTP-Error: " + userRequest.status);
-        }
-    }
+					document.getElementById("game").innerHTML = "In my last game I " + result + " as the " + color + " pieces playing the " + gameData.opening.name + " in the " + gameData.variant + " variant with " + gameData.speed + " time control.";
+				}
+				else
+				{
+					alert("HTTP-Error: " + gameRequest.status);
+				}
+			}
+		}
+		else
+		{
+			alert("HTTP-Error: " + userRequest.status);
+		}
+	}
 
-    lichessData();
+	lichessData();
 </script>
 
 </html>

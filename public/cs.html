@@ -1,109 +1,116 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <link rel="icon" href="../images/logo.png">
-        <link rel="stylesheet" href="css/normalize.css" />
-        <link rel="stylesheet" href="css/terminal.css" />
+	<head>
+		<link rel="icon" href="../images/logo.png">
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/terminal.css" />
 
-        <title>hunterbrodie</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>hunterbrodie</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <style>
-          :root {
-            --global-font-size: 15px;
-            --global-line-height: 1.4em;
-            --global-space: 10px;
-            --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
-              DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
-              serif;
-            --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
-              DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
-              serif;
-            --background-color: #222225;
-            --page-width: 60em;
-            --font-color: #e8e9ed;
-            --invert-font-color: #222225;
-            --secondary-color: #a3abba;
-            --tertiary-color: #a3abba;
-            --primary-color: #62c4ff;
-            --error-color: #ff3c74;
-            --progress-bar-background: #3f3f44;
-            --progress-bar-fill: #62c4ff;
-            --code-bg-color: #3f3f44;
-            --input-style: solid;
-            --display-h1-decoration: none;
-          }
-        </style>
-    </head>
-    
-    <body class="terminal" style="background-color: #222225;" >
-        <div class="container">
-            <div class="terminal-nav">
-                <header class="terminal-logo">
-                    <div class="logo terminal-prompt"><a class="no-style" href="/">hunterbrodie</a></div>
-                </header>
-                <nav class="terminal-menu">
-                    <ul>
-                        <li><a href="/">resume</a></li>
-                        <li><a class="active" href="cs">cs projects</a></li>
-                        <li><a href="websites">website work</a></li>
-                        <li><a href="blog">blog</a></li>
-                        <li><a href="about">about</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="container">
-            <h1>programs I have built</h1>
-            <p>
-                This is a list of major programs I have built. I host all of my projects on Gitlab and Github, but I have recently moved to Gitlab so my newer projects will only be hosted there.
-            </p>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie">Gitlab</a>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://github.com/hunterbrodie">Github</a><br><br>
+		<style>
+		  :root {
+			--global-font-size: 15px;
+			--global-line-height: 1.4em;
+			--global-space: 10px;
+			--font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+				DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+				serif;
+			--mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+				DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+				serif;
+			--background-color: #222225;
+			--page-width: 60em;
+			--font-color: #e8e9ed;
+			--invert-font-color: #222225;
+			--secondary-color: #a3abba;
+			--tertiary-color: #a3abba;
+			--primary-color: #62c4ff;
+			--error-color: #ff3c74;
+			--progress-bar-background: #3f3f44;
+			--progress-bar-fill: #62c4ff;
+			--code-bg-color: #3f3f44;
+			--input-style: solid;
+			--display-h1-decoration: none;
+		  }
+		</style>
+	</head>
+	
+	<body class="terminal" style="background-color: #222225;" >
+		<div class="container">
+			<div class="terminal-nav">
+				<header class="terminal-logo">
+					<div class="logo terminal-prompt"><a class="no-style" href="/">hunterbrodie</a></div>
+				</header>
+				<nav class="terminal-menu">
+					<ul>
+						<li><a href="/">resume</a></li>
+						<li><a class="active" href="cs">cs projects</a></li>
+						<li><a href="websites">website work</a></li>
+						<li><a href="blog">blog</a></li>
+						<li><a href="about">about</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="container">
+			<h1>programs I have built</h1>
+			<p>
+				This is a list of major programs I have built. I host all of my projects on Gitlab and Github, but I have recently moved to Gitlab so my newer projects will only be hosted there.
+			</p>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie">Gitlab</a>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://github.com/hunterbrodie">Github</a><br><br>
 
-            <h2>chess api</h2>
-            <p>
-                A simple API I wrote to keep track of the chess club rankings using the ELO formula written in Rust.
-            </p>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://hunterbrodie.gitlab.io/chess/">Rankings</a>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/chessdb-api">Gitlab</a><br><br>
+			<h2>royalroadreader</h2>
+			<p>
+				This is a iPhone/Android app written in Flutter that allows for offline reading of royalroad.com's many serialized stories. I wrote the webscraping in Rust, which Flutter uses through a C FFI.
+			</p>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/royalroadreader">Flutter App</a>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/rrscapelib">Rust Library</a>
 
-            <h2>aurora</h2>
-            <p>
-                Yet another wrapper for pacman to access the Arch User Repository written in Rust.
-            </p>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://aur.archlinux.org/packages/aurora-git/">AUR</a>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/aurora">Gitlab</a><br><br>
+			<h2>chess api</h2>
+			<p>
+				A simple API I wrote to keep track of the chess club rankings using the ELO formula written in Rust.
+			</p>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://hunterbrodie.gitlab.io/chess/">Rankings</a>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/chessdb-api">Gitlab</a><br><br>
 
-            <h2>labyrinth</h2>
-            <p>
-                A rougelike set in an everchanging maze. Try to outrun the moles for as long as you can!  Use the arrow keys to move and WASD to cast a wall. Click here to learn about the code behind the game.
-            </p>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://www.dropbox.com/s/2v3z69et8eyrg71/Labyrinth.zip?dl=0">Windows</a>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie1/labyrinth">Gitlab</a><br><br>
-            
-            <h2>SGPants Run</h2>
-            <p>
-                An autoscroller platformer I made for SGP International in C#/Unity with a few PHP scripts hosted on Azure for customers during the Corona Pandemic. Art was made in Aseprite.
-            </p>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://sgpantsrun.azurewebsites.net/">Website</a><br><br>
-            
-            <h2>chess ranker</h2>
-            <p>
-                A ranking app for chess leagues as well as for other zero sum game leagues written in C#/Xamarin for my chess club.
-            </p>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://play.google.com/store/apps/details?hl=en&id=com.hunterbrodie.chessapp">Google Play</a>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/ChessApp">Gitlab</a><br><br>
+			<h2>aurora</h2>
+			<p>
+				Yet another wrapper for pacman to access the Arch User Repository written in Rust.
+			</p>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://aur.archlinux.org/packages/aurora-git/">AUR</a>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/aurora">Gitlab</a><br><br>
 
-            <h2>visualizing mandelbrot</h2>
-            <p>
-                Plotting the Mandelbrot Set using the Processing Language.
-            </p>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://www.dropbox.com/sh/gt87qrsabd5av0p/AACbi1h-EdLW9X0m0gW58MUCa?dl=0">Windows</a>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://www.dropbox.com/sh/7ywe37w12ze6r46/AABmdvIfPeQP47GeWEEk1MhKa?dl=0">Linux</a>
-            <a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/VisualizingMandelbrot">Gitlab</a><br><br>
-        </div>
-    </body>
+			<h2>labyrinth</h2>
+			<p>
+				A rougelike set in an everchanging maze. Try to outrun the moles for as long as you can!  Use the arrow keys to move and WASD to cast a wall. Click here to learn about the code behind the game.
+			</p>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://www.dropbox.com/s/2v3z69et8eyrg71/Labyrinth.zip?dl=0">Windows</a>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie1/labyrinth">Gitlab</a><br><br>
+			
+			<h2>SGPants Run</h2>
+			<p>
+				An autoscroller platformer I made for SGP International in C#/Unity with a few PHP scripts hosted on Azure for customers during the Corona Pandemic. Art was made in Aseprite.
+			</p>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://sgpantsrun.azurewebsites.net/">Website</a><br><br>
+			
+			<h2>chess ranker</h2>
+			<p>
+				A ranking app for chess leagues as well as for other zero sum game leagues written in C#/Xamarin for my chess club.
+			</p>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://play.google.com/store/apps/details?hl=en&id=com.hunterbrodie.chessapp">Google Play</a>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/ChessApp">Gitlab</a><br><br>
+
+			<h2>visualizing mandelbrot</h2>
+			<p>
+				Plotting the Mandelbrot Set using the Processing Language.
+			</p>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://www.dropbox.com/sh/gt87qrsabd5av0p/AACbi1h-EdLW9X0m0gW58MUCa?dl=0">Windows</a>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://www.dropbox.com/sh/7ywe37w12ze6r46/AABmdvIfPeQP47GeWEEk1MhKa?dl=0">Linux</a>
+			<a target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost" href="https://gitlab.com/hunterbrodie/VisualizingMandelbrot">Gitlab</a><br><br>
+		</div>
+	</body>
 </html>
